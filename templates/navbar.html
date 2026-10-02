@@ -1,0 +1,23 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<nav class="navbar">
+    <a href="/" class="navbar-logo">
+        <i class="fa-solid fa-paw"></i> SmartVet
+    </a>
+
+    <div class="navbar-links">
+        <a href="/">হোম</a>
+
+        {% if current_user.is_authenticated %}
+            <a href="/dashboard">ড্যাশবোর্ড</a>
+            <a href="/ai-chat"><i class="fa-solid fa-robot"></i> AI সহায়ক</a>
+            <span class="navbar-user">
+                <i class="fa-solid fa-circle-user"></i> {{ current_user.name }}
+            </span>
+            <a href="/logout" class="navbar-btn">লগআউট</a>
+        {% else %}
+            <a href="/login" class="navbar-btn-outline">লগইন</a>
+            <a href="/register" class="navbar-btn">রেজিস্টার</a>
+        {% endif %}
+    </div>
+</nav>

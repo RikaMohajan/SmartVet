@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Compassion in Every Share - Registration</title>
+<style>
+  :root{
+    --purple:#673ab7;
+    --purple-dark:#5b2fa8;
+    --border:#dadce0;
+    --text:#202124;
+    --muted:#5f6368;
+    --bg:#f0ebf8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI", Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    padding:24px 12px 60px;
+  }
+  .wrap{max-width:640px;margin:0 auto;}
+  .topbar{
+    height:10px;
+    background:var(--purple);
+    border-radius:8px 8px 0 0;
+  }
+  .card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-top:none;
+  }
+  .header{padding:24px 24px 20px;border-bottom:1px solid var(--border);}
+  .header h1{font-size:22px;margin:0 0 8px;font-weight:500;}
+  .header p{font-size:14px;color:var(--muted);margin:4px 0 0;line-height:1.5;}
+  .required-note{font-size:12px;color:#d93025;padding:16px 24px;}
+  .field{
+    background:#fff;
+    border:1px solid var(--border);
+    margin-top:16px;
+    padding:20px 24px 24px;
+    border-radius:8px;
+  }
+  .field label{
+    display:block;
+    font-size:15px;
+    margin-bottom:10px;
+  }
+  .field label .req{color:#d93025;margin-left:2px;}
+  input[type="text"], select{
+    width:100%;
+    max-width:400px;
+    padding:8px 4px;
+    font-size:14px;
+    border:none;
+    border-bottom:1px solid var(--border);
+    background:transparent;
+    outline:none;
+    color:var(--text);
+  }
+  input[type="text"]:focus, select:focus{
+    border-bottom:2px solid var(--purple);
+  }
+  .radio-group{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+  .radio-option{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .radio-option input{accent-color:var(--purple);width:18px;height:18px;}
+  .actions{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:24px;
+    padding:0 4px;
+  }
+  .submit-btn{
+    background:var(--purple);
+    color:#fff;
+    border:none;
+    padding:10px 24px;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+  }
+  .submit-btn:hover{background:var(--purple-dark);}
+  .status{font-size:13px;color:var(--muted);}
+  .result{
+    display:none;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:24px;
+    margin-top:16px;
+  }
+  .result h2{margin-top:0;font-size:18px;color:var(--purple);}
+  .result table{width:100%;border-collapse:collapse;font-size:14px;}
+  .result td{padding:6px 4px;border-bottom:1px solid #eee;vertical-align:top;}
+  .result td:first-child{color:var(--muted);width:45%;}
+  .edit-btn{
+    background:none;
+    border:1px solid var(--purple);
+    color:var(--purple);
+    padding:8px 18px;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+    margin-top:16px;
+  }
+  .footer-note{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    margin-top:20px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"></div>
+  <div class="card">
+    <div class="header">
+      <h1>"Compassion in Every Share" — Group Registration</h1>
+      <p>Something extraordinary is waiting to be unveiled! ✨<br>
+      PCIU Volunteers is bringing its Signature Event — a celebration of togetherness, creativity, and the spirit of volunteering.<br>
+      The curtain will rise soon.<br>
+      Stay connected, fill out the form, and be part of the excitement!<br>
+      Our Signature Event — COMING SOON! 🎭✨<br>
+      #PCIUVolunteers</p>
+      <p>নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন। সব প্রশ্নের পাশে * থাকলে সেটি বাধ্যতামূলক।</p>
+    </div>
+    <div class="required-note">* Indicates required question</div>
+  </div>
+
+  <form id="regForm">
+
+    <div class="field">
+      <label>Certificate name <span class="req">*</span></label>
+      <input type="text" id="certName" placeholder="সার্টিফিকেটে যে নাম থাকবে" required>
+    </div>
+
+    <div class="field">
+      <label>University ID <span class="req">*</span></label>
+      <input type="text" id="uniId" placeholder="তোমার ইউনিভার্সিটি আইডি" required>
+    </div>
+
+    <div class="field">
+      <label>Department <span class="req">*</span></label>
+      <select id="department" required>
+        <option value="" disabled selected>Choose</option>
+        <option>CSE</option>
+        <option>EEE</option>
+        <option>BBA</option>
+        <option>English</option>
+        <option>Law</option>
+        <option>Pharmacy</option>
+        <option>Civil</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>BKash / Nagad / Rocket Number <span class="req">*</span></label>
+      <input type="text" id="paymentNumber" placeholder="যে নম্বর থেকে টাকা পাঠানো হয়েছে" required>
+    </div>
+
+    <div class="field">
+      <label>Which group you belong to? <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="group" value="A" required> A</label>
+        <label class="radio-option"><input type="radio" name="group" value="B"> B</label>
+        <label class="radio-option"><input type="radio" name="group" value="C"> C</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Transaction ID <span class="req">*</span></label>
+      <input type="text" id="transactionId" placeholder="পেমেন্ট এর ট্রানজেকশন আইডি" required>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="submit-btn">Submit</button>
+      <span class="status">Draft saved locally</span>
+    </div>
+  </form>
+
+  <div class="result" id="resultBox">
+    <h2>জমা হয়েছে ✔️</h2>
+    <table id="resultTable"></table>
+    <button class="edit-btn" id="editBtn">Edit response</button>
+  </div>
+
+  <p class="footer-note">This form is for official member verification and registration fee processing only.</p>
+
+</div>
+
+<script>
+  const form = document.getElementById('regForm');
+  const resultBox = document.getElementById('resultBox');
+  const resultTable = document.getElementById('resultTable');
+  const editBtn = document.getElementById('editBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const group = form.querySelector('input[name="group"]:checked');
+    const data = {
+      "Certificate name": document.getElementById('certName').value,
+      "University ID": document.getElementById('uniId').value,
+      "Department": document.getElementById('department').value,
+      "BKash/Nagad/Rocket Number": document.getElementById('paymentNumber').value,
+      "Group": group ? group.value : "",
+      "Transaction ID": document.getElementById('transactionId').value
+    };
+
+    resultTable.innerHTML = Object.entries(data).map(([k,v]) =>
+      <tr><td>${k}</td><td>${v}</td></tr>
+    ).join('');
+
+    form.style.display = 'none';
+    resultBox.style.display = 'block';
+  });
+
+  editBtn.addEventListener('click', function(){
+    resultBox.style.display = 'none';
+    form.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Disease Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div style="padding:15px;">
+    <a href="/dashboard">
+        <button>⬅ Back to Dashboard</button>
+    </a>
+</div>
+
+<h1 style="text-align:center;">🐔 Chicken Disease Detection</h1>
+
+<div class="login-box">
+
+    <h3>Select Symptoms</h3>
+
+    <div class="symptoms">
+
+        <label><input type="checkbox" value="Fever"> Fever</label>
+
+        <label><input type="checkbox" value="Cough"> Cough</label>
+
+        <label><input type="checkbox" value="Diarrhea"> Diarrhea</label>
+
+        <label><input type="checkbox" value="Loss of Appetite"> Loss of Appetite</label>
+
+        <label><input type="checkbox" value="Difficulty Breathing"> Difficulty Breathing</label>
+
+    </div>
+
+    <br>
+
+    <button onclick="alert('Chicken Module Coming Soon')">
+        Check Disease
+    </button>
+
+    <br><br>
+
+    <div id="result"></div>
+
+</div>
+
+</body>
+
+</html>

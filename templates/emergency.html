@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>জরুরি সহায়তা - SmartVet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="back-link-wrap">
+    <a href="/dashboard" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> ড্যাশবোর্ডে ফিরুন
+    </a>
+</div>
+
+<h1 class="dashboard-title"><i class="fa-solid fa-truck-medical"></i> জরুরি প্রাথমিক সহায়তা</h1>
+
+<div class="emergency-disclaimer">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    এগুলো শুধু জরুরি প্রাথমিক পদক্ষেপ। যত দ্রুত সম্ভব নিকটস্থ পশুচিকিৎসকের সাথে যোগাযোগ করুন।
+</div>
+
+<div class="emergency-grid">
+
+    <div class="emergency-card">
+        <i class="fa-solid fa-temperature-high"></i>
+        <h3>তীব্র জ্বর</h3>
+        <p>প্রাণীকে ছায়াযুক্ত, ঠান্ডা জায়গায় রাখুন। শরীরে ঠান্ডা পানি দিয়ে হালকা মুছে দিন। প্রচুর পরিষ্কার পানি দিন। জ্বর না কমলে দ্রুত ডাক্তার ডাকুন।</p>
+    </div>
+
+    <div class="emergency-card">
+        <i class="fa-solid fa-lungs"></i>
+        <h3>শ্বাসকষ্ট</h3>
+        <p>প্রাণীকে খোলা, বাতাসযুক্ত জায়গায় নিয়ে যান। ভিড় ও ধোঁয়া থেকে দূরে রাখুন। জোর করে খাওয়াবেন না। দ্রুত ভেটেরিনারি সহায়তা নিন।</p>
+    </div>
+
+    <div class="emergency-card">
+        <i class="fa-solid fa-droplet"></i>
+        <h3>রক্তক্ষরণ</h3>
+        <p>পরিষ্কার কাপড় দিয়ে ক্ষতস্থানে হালকা চাপ দিন। ক্ষতস্থান নাড়াবেন না। রক্ত বন্ধ না হলে বা বেশি হলে দ্রুত ডাক্তারের কাছে নিন।</p>
+    </div>
+
+    <div class="emergency-card">
+        <i class="fa-solid fa-poo"></i>
+        <h3>তীব্র ডায়রিয়া</h3>
+        <p>বিশুদ্ধ পানি ও ইলেক্ট্রোলাইট (ORS জাতীয়) দিন। খাবার সাময়িক বন্ধ রাখুন। ১২ ঘণ্টার বেশি স্থায়ী হলে ডাক্তার দেখান।</p>
+    </div>
+
+    <div class="emergency-card">
+        <i class="fa-solid fa-skull-crossbones"></i>
+        <h3>বিষক্রিয়ার সন্দেহ</h3>
+        <p>আর কিছু খাওয়াবেন না। মুখের চারপাশ পরিষ্কার করুন। কী খেয়েছে বোঝার চেষ্টা করুন, সেই তথ্য ডাক্তারকে জানান। দ্রুত চিকিৎসা নিন।</p>
+    </div>
+
+    <div class="emergency-card">
+        <i class="fa-solid fa-bone"></i>
+        <h3>আঘাত বা দাঁড়াতে না পারা</h3>
+        <p>প্রাণীকে জোর করে নাড়াবেন না। আরামদায়ক, সমতল জায়গায় রাখুন। আক্রান্ত স্থানে চাপ দেবেন না। দ্রুত ভেটেরিনারি সহায়তা নিন।</p>
+    </div>
+
+</div>
+
+</body>
+</html>

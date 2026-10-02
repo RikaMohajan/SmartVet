@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ animal }} Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="back-link-wrap">
+    <a href="/dashboard" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> ড্যাশবোর্ডে ফিরুন
+    </a>
+</div>
+
+<h1 class="dashboard-title">
+
+{% if animal == "Cow" %}
+<i class="fa-solid fa-cow"></i> Cow Disease Detection
+{% elif animal == "Goat" %}
+<i class="fa-solid fa-paw"></i> Goat Disease Detection
+{% elif animal == "Chicken" %}
+<i class="fa-solid fa-kiwi-bird"></i> Chicken Disease Detection
+{% elif animal == "Duck" %}
+<i class="fa-solid fa-kiwi-bird"></i> Duck Disease Detection
+{% elif animal == "Dog" %}
+<i class="fa-solid fa-dog"></i> Dog Disease Detection
+{% elif animal == "Cat" %}
+<i class="fa-solid fa-cat"></i> Cat Disease Detection
+{% elif animal == "Pigeon" %}
+<i class="fa-solid fa-dove"></i> Pigeon Disease Detection
+{% elif animal == "Fish" %}
+<i class="fa-solid fa-fish"></i> Fish Disease Detection
+{% elif animal == "Rabbit" %}
+<i class="fa-solid fa-paw"></i> Rabbit Disease Detection
+{% else %}
+<i class="fa-solid fa-paw"></i> Animal Disease Detection
+{% endif %}
+
+</h1>
+
+<div class="animal-detect-card">
+
+    <div class="animal-image">
+        {% if animal == "Cow" %}
+            <img src="{{ url_for('static', filename='images/cow.png') }}" alt="Cow">
+        {% elif animal == "Goat" %}
+            <img src="{{ url_for('static', filename='images/goat.png') }}" alt="Goat">
+        {% elif animal == "Chicken" %}
+            <img src="{{ url_for('static', filename='images/chicken.png') }}" alt="Chicken">
+        {% elif animal == "Dog" %}
+            <img src="{{ url_for('static', filename='images/dog.png') }}" alt="Dog">
+        {% elif animal == "Cat" %}
+            <img src="{{ url_for('static', filename='images/cat.png') }}" alt="Cat">
+        {% elif animal == "Pigeon" %}
+            <img src="{{ url_for('static', filename='images/pigeon.png') }}" alt="Pigeon">
+        {% elif animal == "Fish" %}
+            <img src="{{ url_for('static', filename='images/fish.png') }}" alt="Fish">
+        {% elif animal == "Rabbit" %}
+            <img src="{{ url_for('static', filename='images/rabbit.png') }}" alt="Rabbit">
+        {% endif %}
+    </div>
+
+    <h3 class="symptoms-heading">লক্ষণ নির্বাচন করুন</h3>
+
+    <div class="symptoms">
+        <label><input type="checkbox" value="Fever"> Fever</label>
+        <label><input type="checkbox" value="Cough"> Cough</label>
+        <label><input type="checkbox" value="Loss of Appetite"> Loss of Appetite</label>
+        <label><input type="checkbox" value="Diarrhea"> Diarrhea</label>
+        <label><input type="checkbox" value="Skin Lesion"> Skin Lesion</label>
+        <label><input type="checkbox" value="Difficulty Breathing"> Difficulty Breathing</label>
+    </div>
+
+    <button onclick="searchDisease('{{ animal }}')">
+        <i class="fa-solid fa-magnifying-glass"></i> Check Disease
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

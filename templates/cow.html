@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cow Disease Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div style="padding:15px;">
+    <a href="/dashboard">
+        <button>⬅ Back to Dashboard</button>
+    </a>
+</div>
+
+    <h1 style="text-align:center;">🐄 Cow Disease Detection</h1>
+
+    <div class="login-box">
+
+        <h2>Select Symptoms</h2>
+
+        <div class="symptoms">
+
+            <label>
+                <input type="checkbox" value="Fever">
+                Fever
+            </label>
+
+            <label>
+                <input type="checkbox" value="Saliva Dropping">
+                Saliva Dropping
+            </label>
+
+            <label>
+                <input type="checkbox" value="Cough">
+                Cough
+            </label>
+
+            <label>
+                <input type="checkbox" value="Loss of Appetite">
+                Loss of Appetite
+            </label>
+
+            <label>
+                <input type="checkbox" value="Skin Lesion">
+                Skin Lesion
+            </label>
+
+        </div>
+
+        <br>
+
+        <button class="btn1" onclick="searchDisease()">
+            Check Disease
+        </button>
+
+        <br><br>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

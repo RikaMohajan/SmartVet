@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goat Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div style="padding:15px;">
+    <a href="/dashboard">
+        <button>⬅ Back to Dashboard</button>
+    </a>
+</div>
+
+<h1 style="text-align:center;">🐐 Goat Disease Detection</h1>
+
+<div class="login-box">
+
+<select id="symptom">
+
+    <option value="">Select Symptom</option>
+
+    <option>Fever</option>
+    <option>Diarrhea</option>
+    <option>Cough</option>
+    <option>Weight Loss</option>
+    <option>Skin Lesion</option>
+
+</select>
+
+<br><br>
+
+<button onclick="checkGoatDisease()">
+Check Disease
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

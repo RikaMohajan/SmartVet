@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartVet Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<header class="header">
+    <h1><i class="fa-solid fa-paw"></i> SmartVet</h1>
+    <p>AI-Based Animal Disease Detection System</p>
+</header>
+
+<h1 class="dashboard-title">স্বাগতম, {{ user_name }}</h1>
+
+<div class="animal-container">
+
+    <a href="/animal/Cow" class="animal-card">
+        <img src="{{ url_for('static', filename='images/cow.png') }}" alt="Cow">
+        <h2>Cow</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Goat" class="animal-card">
+        <img src="{{ url_for('static', filename='images/goat.png') }}" alt="Goat">
+        <h2>Goat</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Chicken" class="animal-card">
+        <img src="{{ url_for('static', filename='images/chicken.png') }}" alt="Chicken">
+        <h2>Chicken</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Dog" class="animal-card">
+        <img src="{{ url_for('static', filename='images/dog.png') }}" alt="Dog">
+        <h2>Dog</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Cat" class="animal-card">
+        <img src="{{ url_for('static', filename='images/cat.png') }}" alt="Cat">
+        <h2>Cat</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Pigeon" class="animal-card">
+        <img src="{{ url_for('static', filename='images/pigeon.png') }}" alt="Pigeon">
+        <h2>Pigeon</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Fish" class="animal-card">
+        <img src="{{ url_for('static', filename='images/fish.png') }}" alt="Fish">
+        <h2>Fish</h2>
+        <p>Disease Detection</p>
+    </a>
+
+    <a href="/animal/Rabbit" class="animal-card">
+        <img src="{{ url_for('static', filename='images/rabbit.png') }}" alt="Rabbit">
+        <h2>Rabbit</h2>
+        <p>Disease Detection</p>
+    </a>
+
+</div>
+
+<h2 class="section-title">Features</h2>
+
+<div class="feature-container">
+
+    <div class="feature-card">
+        <i class="fa-solid fa-syringe fa-2x" style="color:var(--turmeric-dark)"></i>
+        <h3>Vaccination</h3>
+        <p>Track vaccination schedule.</p>
+    </div>
+
+    <div class="feature-card">
+        <i class="fa-solid fa-chart-column fa-2x" style="color:var(--turmeric-dark)"></i>
+        <h3>Disease History</h3>
+        <p>View previous diagnoses.</p>
+    </div>
+
+    <a href="/emergency" class="feature-card" style="text-decoration:none; display:block; color:inherit;">
+        <i class="fa-solid fa-truck-medical fa-2x" style="color:var(--turmeric-dark)"></i>
+        <h3>Emergency Help</h3>
+        <p>Quick first-aid guidelines.</p>
+    </a>
+
+</div>
+
+</body>
+</html>

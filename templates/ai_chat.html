@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI চ্যাট সহায়ক - SmartVet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="back-link-wrap">
+    <a href="/dashboard" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> ড্যাশবোর্ডে ফিরুন
+    </a>
+</div>
+
+<h1 class="dashboard-title"><i class="fa-solid fa-robot"></i> AI চ্যাট সহায়ক</h1>
+
+<div class="chat-wrap">
+
+    <div class="chat-disclaimer">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        এই AI সহায়ক শুধু প্রাথমিক ধারণা দেয়, এটি পশুচিকিৎসকের বিকল্প নয়।
+    </div>
+
+    <div id="chat-box" class="chat-box">
+        <div class="chat-message bot-message">
+            আসসালামু আলাইকুম! আপনার প্রাণীর কী সমস্যা হচ্ছে, লক্ষণগুলো লিখে জানান।
+        </div>
+    </div>
+
+    <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="যেমনঃ আমার গরুর জ্বর, খাচ্ছে না...">
+        <button onclick="sendChatMessage()">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/ai_chat.js') }}"></script>
+
+</body>
+</html>
