@@ -1,27 +1,28 @@
 ﻿<!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - SmartVet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / লগইন - SmartVet</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
     <div class="login-box">
-        <h1>লগইন করুন</h1>
+        <h1>Login / লগইন</h1>
 
         {% if error %}
             <p style="color:red;">{{ error }}</p>
         {% endif %}
 
         <form method="POST" action="/login">
-            <input type="email" name="email" placeholder="ইমেইল" required>
-            <input type="password" name="password" placeholder="পাসওয়ার্ড" required>
-            <button type="submit">Login</button>
+            <input type="email" name="email" placeholder="Email / ইমেইল" required>
+            <input type="password" name="password" placeholder="Password / পাসওয়ার্ড" required>
+            <button type="submit">Login / লগইন</button>
         </form>
 
         <p style="margin-top:15px;">
-            নতুন ব্যবহারকারী? <a href="/register">Register করুন</a>
+            New user? / নতুন ব্যবহারকারী? <a href="/register">Register / রেজিস্টার করুন</a>
         </p>
     </div>
 

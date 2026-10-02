@@ -1,28 +1,29 @@
 ﻿<!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register - SmartVet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register / নিবন্ধন - SmartVet</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
     <div class="login-box">
-        <h1>নিবন্ধন করুন</h1>
+        <h1>Register / নিবন্ধন করুন</h1>
 
         {% if error %}
             <p style="color:red;">{{ error }}</p>
         {% endif %}
 
         <form method="POST" action="/register">
-            <input type="text" name="name" placeholder="আপনার নাম" required>
-            <input type="email" name="email" placeholder="ইমেইল" required>
-            <input type="password" name="password" placeholder="পাসওয়ার্ড" required>
-            <button type="submit">Register</button>
+            <input type="text" name="name" placeholder="Your name / আপনার নাম" required>
+            <input type="email" name="email" placeholder="Email / ইমেইল" required>
+            <input type="password" name="password" placeholder="Password / পাসওয়ার্ড" required>
+            <button type="submit">Register / নিবন্ধন</button>
         </form>
 
         <p style="margin-top:15px;">
-            আগে থেকে অ্যাকাউন্ট আছে? <a href="/login">Login করুন</a>
+            Already have an account? / আগে থেকে অ্যাকাউন্ট আছে? <a href="/login">Login / লগইন করুন</a>
         </p>
     </div>
 

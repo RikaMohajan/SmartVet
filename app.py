@@ -24,8 +24,8 @@ GROQ_SYSTEM_INSTRUCTION = (
     "স্বাস্থ্য সমস্যা বুঝতে সাহায্য করো। "
     "কৃষক তার প্রশ্ন বাংলা হরফে, বাংলিশ (যেমন 'amar gorur jor hoise'), অথবা ইংরেজিতে লিখতে পারে — "
     "তুমি সবক্ষেত্রেই ইনপুট বুঝবে। "
-    "কিন্তু তোমার উত্তর সবসময় শুধুমাত্র বাংলা হরফে দেবে, ইংরেজি অক্ষরে (বাংলিশ) কখনো উত্তর দেবে না। "
-    "সবসময় সহজ, সংক্ষিপ্ত বাংলা ভাষায় উত্তর দাও। "
+    "তোমার উত্তর প্রথমে সহজ ইংরেজিতে, তারপর একই কথা বাংলা হরফে দেবে। বাংলিশে (ইংরেজি অক্ষরে বাংলা) কখনো উত্তর দেবে না। "
+    "উত্তর সহজ ও সংক্ষিপ্ত রাখো। "
     "কৃষক লক্ষণ বললে, সম্ভাব্য রোগ ও প্রাথমিক করণীয় বলো। "
     "কিন্তু প্রতিটি উত্তরের শেষে অবশ্যই স্পষ্টভাবে বলো যে এটি চূড়ান্ত ডায়াগনোসিস নয় এবং "
     "গুরুতর অবস্থায় দ্রুত পশুচিকিৎসকের পরামর্শ নেওয়া জরুরি। "
@@ -116,6 +116,7 @@ def history_page():
 
     return render_template("history.html", records=records)
 
+
 @app.route("/vaccination", methods=["GET", "POST"])
 @login_required
 def vaccination_page():
@@ -186,6 +187,7 @@ def delete_vaccination(record_id):
 
     return redirect(url_for("vaccination_page"))
 
+
 # -----------------------------
 # Register
 # -----------------------------
@@ -201,7 +203,10 @@ def register():
     password = request.form.get("password")
 
     if not name or not email or not password:
-        return render_template("register.html", error="সব ঘর পূরণ করুন।")
+        return render_template(
+            "register.html",
+            error="Please fill all fields. / সব ঘর পূরণ করুন।"
+        )
 
     hashed_password = generate_password_hash(password)
 
@@ -216,7 +221,10 @@ def register():
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
-        return render_template("register.html", error="এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট আছে।")
+        return render_template(
+            "register.html",
+            error="An account with this email already exists. / এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট আছে।"
+        )
 
     conn.close()
 
@@ -247,7 +255,10 @@ def login():
         login_user(user)
         return redirect(url_for("dashboard"))
 
-    return render_template("login.html", error="ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।")
+    return render_template(
+        "login.html",
+        error="Wrong email or password. / ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।"
+    )
 
 
 # -----------------------------
@@ -284,7 +295,8 @@ def search_disease():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT disease_name, symptom, description, treatment
+        SELECT disease_name, symptom, description, treatment,
+               disease_name_bn, description_bn, treatment_bn
         FROM diseases
         WHERE animal = ?
     """, (animal,))
@@ -314,6 +326,9 @@ def search_disease():
                 "disease": disease_name,
                 "description": description,
                 "treatment": treatment,
+                "disease_bn": disease[4],
+                "description_bn": disease[5],
+                "treatment_bn": disease[6],
                 "match": percentage
             })
 
@@ -324,7 +339,7 @@ def search_disease():
     if len(top_results) > 0:
         top_disease_name = top_results[0]["disease"]
     else:
-        top_disease_name = "কোনো মিল পাওয়া যায়নি"
+        top_disease_name = "No match found / কোনো মিল পাওয়া যায়নি"
 
     cursor.execute("""
         INSERT INTO history (user_id, animal, symptoms, disease)
@@ -376,7 +391,7 @@ def ai_chat_api():
         print("GROQ ERROR:", e)
         return jsonify({
             "status": "error",
-            "message": "AI থেকে উত্তর পাওয়া যায়নি। একটু পরে আবার চেষ্টা করুন।"
+            "message": "AI could not respond. Please try again later. / AI থেকে উত্তর পাওয়া যায়নি। একটু পরে আবার চেষ্টা করুন।"
         })
 
     return jsonify({
