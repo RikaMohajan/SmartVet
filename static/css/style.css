@@ -740,3 +740,56 @@ button:active{
     font-size:.9rem;
     line-height:1.6;
 }
+/* ===== History Page ===== */
+.history-wrap{
+    max-width:700px;
+    margin:0 auto 60px;
+    padding:0 20px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.history-card{
+    background:#fff;
+    border:1.5px dashed var(--line);
+    border-radius:10px;
+    padding:20px 22px;
+}
+
+.history-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.history-animal{
+    background:var(--forest);
+    color:#fff;
+    padding:4px 14px;
+    border-radius:20px;
+    font-weight:600;
+    font-size:.85rem;
+}
+
+.history-date{
+    color:#6b6858;
+    font-size:.85rem;
+}
+
+.history-card p{
+    margin:6px 0;
+    line-height:1.6;
+}
+
+.history-empty{
+    text-align:center;
+    padding:50px 20px;
+    color:#6b6858;
+}
+
+.history-empty i{
+    font-size:2.5rem;
+    color:var(--turmeric-dark);
+    margin-bottom:12px;
+}

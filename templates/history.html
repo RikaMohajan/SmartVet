@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রোগ নির্ণয়ের ইতিহাস - SmartVet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="back-link-wrap">
+    <a href="/dashboard" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> ড্যাশবোর্ডে ফিরুন
+    </a>
+</div>
+
+<h1 class="dashboard-title"><i class="fa-solid fa-chart-column"></i> রোগ নির্ণয়ের ইতিহাস</h1>
+
+<div class="history-wrap">
+
+    {% if records %}
+        {% for r in records %}
+        <div class="history-card">
+            <div class="history-top">
+                <span class="history-animal">{{ r[0] }}</span>
+                <span class="history-date">{{ r[3] }}</span>
+            </div>
+            <p><strong>লক্ষণ:</strong> {{ r[1] }}</p>
+            <p><strong>সম্ভাব্য রোগ:</strong> {{ r[2] }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="history-empty">
+            <i class="fa-solid fa-folder-open"></i>
+            <p>এখনো কোনো রোগ নির্ণয় করা হয়নি। কোনো প্রাণী বেছে "Check Disease" চাপুন।</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
