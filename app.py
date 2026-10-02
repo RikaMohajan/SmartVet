@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
+from datetime import date, timedelta
 import os
 from groq import Groq
 from dotenv import load_dotenv
@@ -115,6 +116,75 @@ def history_page():
 
     return render_template("history.html", records=records)
 
+@app.route("/vaccination", methods=["GET", "POST"])
+@login_required
+def vaccination_page():
+
+    conn = sqlite3.connect("database/smartvet.db")
+    cursor = conn.cursor()
+
+    if request.method == "POST":
+        animal = request.form.get("animal")
+        animal_name = request.form.get("animal_name")
+        vaccine_name = request.form.get("vaccine_name")
+        given_date = request.form.get("given_date")
+        next_date = request.form.get("next_date")
+
+        if animal and vaccine_name and given_date:
+            cursor.execute("""
+                INSERT INTO vaccinations
+                (user_id, animal, animal_name, vaccine_name, given_date, next_date)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (current_user.id, animal, animal_name, vaccine_name,
+                  given_date, next_date or None))
+            conn.commit()
+
+        conn.close()
+        return redirect(url_for("vaccination_page"))
+
+    cursor.execute("""
+        SELECT id, animal, animal_name, vaccine_name, given_date, next_date
+        FROM vaccinations
+        WHERE user_id = ?
+        ORDER BY next_date IS NULL, next_date ASC
+    """, (current_user.id,))
+    rows = cursor.fetchall()
+    conn.close()
+
+    today = date.today()
+    records = []
+
+    for r in rows:
+        status = "ok"
+        if r[5]:
+            next_d = date.fromisoformat(r[5])
+            if next_d < today:
+                status = "overdue"
+            elif next_d <= today + timedelta(days=7):
+                status = "soon"
+        records.append({
+            "id": r[0], "animal": r[1], "animal_name": r[2],
+            "vaccine_name": r[3], "given_date": r[4],
+            "next_date": r[5], "status": status
+        })
+
+    return render_template("vaccination.html", records=records)
+
+
+@app.route("/vaccination/delete/<int:record_id>", methods=["POST"])
+@login_required
+def delete_vaccination(record_id):
+
+    conn = sqlite3.connect("database/smartvet.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        "DELETE FROM vaccinations WHERE id = ? AND user_id = ?",
+        (record_id, current_user.id)
+    )
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for("vaccination_page"))
 
 # -----------------------------
 # Register

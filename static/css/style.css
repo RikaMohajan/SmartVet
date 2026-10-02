@@ -793,3 +793,75 @@ button:active{
     color:var(--turmeric-dark);
     margin-bottom:12px;
 }
+/* ===== Vaccination Page ===== */
+.vacc-form-card{
+    max-width:500px;
+    margin:0 auto 35px;
+    background:#fff;
+    border:1.5px dashed var(--line);
+    border-radius:10px;
+    padding:28px 26px;
+    box-shadow:6px 6px 0 rgba(27,67,50,.12);
+}
+
+.vacc-form-card h3{
+    color:var(--forest);
+    margin-bottom:14px;
+}
+
+.vacc-form-card label{
+    display:block;
+    font-size:.88rem;
+    font-weight:600;
+    color:var(--forest);
+    margin-top:10px;
+}
+
+.vacc-form-card input,
+.vacc-form-card select{
+    width:100%;
+}
+
+.vacc-form-card button{
+    margin-top:16px;
+}
+
+.vacc-badge{
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:.8rem;
+    font-weight:600;
+}
+
+.vacc-badge-overdue{
+    background:#fde8e8;
+    color:#b42318;
+}
+
+.vacc-badge-soon{
+    background:#fff3e0;
+    color:#b45309;
+}
+
+.vacc-overdue{
+    border-left:5px solid #b42318;
+}
+
+.vacc-soon{
+    border-left:5px solid #e9a23b;
+}
+
+.vacc-delete{
+    width:auto;
+    margin-top:10px;
+    padding:7px 16px;
+    font-size:.85rem;
+    background:#fff;
+    color:#b42318;
+    border:1.5px solid #b42318;
+}
+
+.vacc-delete:hover{
+    background:#b42318;
+    color:#fff;
+}

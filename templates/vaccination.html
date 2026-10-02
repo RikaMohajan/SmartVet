@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>টিকার রেকর্ড - SmartVet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="back-link-wrap">
+    <a href="/dashboard" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> ড্যাশবোর্ডে ফিরুন
+    </a>
+</div>
+
+<h1 class="dashboard-title"><i class="fa-solid fa-syringe"></i> টিকার রেকর্ড</h1>
+
+<div class="vacc-form-card">
+    <h3>নতুন টিকার রেকর্ড যোগ করুন</h3>
+
+    <form method="POST" action="/vaccination">
+
+        <label>প্রাণীর ধরন</label>
+        <select name="animal" required>
+            <option value="">-- বেছে নিন --</option>
+            <option value="Cow">গরু</option>
+            <option value="Goat">ছাগল</option>
+            <option value="Chicken">মুরগি</option>
+            <option value="Dog">কুকুর</option>
+            <option value="Cat">বিড়াল</option>
+            <option value="Pigeon">কবুতর</option>
+            <option value="Fish">মাছ</option>
+            <option value="Rabbit">খরগোশ</option>
+        </select>
+
+        <label>প্রাণীর নাম বা ট্যাগ (ঐচ্ছিক)</label>
+        <input type="text" name="animal_name" placeholder="যেমনঃ লাল গাই">
+
+        <label>টিকার নাম</label>
+        <input type="text" name="vaccine_name" placeholder="যেমনঃ FMD" required>
+
+        <label>টিকা দেওয়ার তারিখ</label>
+        <input type="date" name="given_date" required>
+
+        <label>পরের টিকার তারিখ (ঐচ্ছিক)</label>
+        <input type="date" name="next_date">
+
+        <button type="submit">
+            <i class="fa-solid fa-plus"></i> যোগ করুন
+        </button>
+    </form>
+</div>
+
+<div class="history-wrap">
+
+    {% if records %}
+        {% for r in records %}
+        <div class="history-card vacc-{{ r.status }}">
+            <div class="history-top">
+                <span class="history-animal">{{ r.animal }}{% if r.animal_name %} - {{ r.animal_name }}{% endif %}</span>
+
+                {% if r.status == 'overdue' %}
+                    <span class="vacc-badge vacc-badge-overdue">সময় পার হয়েছে</span>
+                {% elif r.status == 'soon' %}
+                    <span class="vacc-badge vacc-badge-soon">শীঘ্রই দিতে হবে</span>
+                {% endif %}
+            </div>
+
+            <p><strong>টিকা:</strong> {{ r.vaccine_name }}</p>
+            <p><strong>দেওয়া হয়েছে:</strong> {{ r.given_date }}</p>
+            {% if r.next_date %}
+                <p><strong>পরের টিকা:</strong> {{ r.next_date }}</p>
+            {% endif %}
+
+            <form method="POST" action="/vaccination/delete/{{ r.id }}"
+                  onsubmit="return confirm('এই রেকর্ডটি মুছে ফেলবেন?');">
+                <button type="submit" class="vacc-delete">
+                    <i class="fa-solid fa-trash"></i> মুছুন
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="history-empty">
+            <i class="fa-solid fa-syringe"></i>
+            <p>এখনো কোনো টিকার রেকর্ড নেই। উপরের ফর্মে প্রথম রেকর্ডটি যোগ করুন।</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
