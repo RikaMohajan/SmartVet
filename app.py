@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "smartvet-secret-key-change-this-later"
+app.secret_key = "smartvet#123#"
 
 # -----------------------------
 # Groq AI Setup
