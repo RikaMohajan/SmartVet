@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartVet - AI ভিত্তিক পশু রোগ শনাক্তকরণ</title>
+    <title>SmartVet BD - AI Animal Disease Detection</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -13,87 +13,87 @@
 
 <header class="header">
     <h1><i class="fa-solid fa-paw"></i> SmartVet BD</h1>
-    <p>AI-ভিত্তিক পশু ও পাখির রোগ শনাক্তকরণ সহায়ক</p>
+    <p>AI-Based Animal & Bird Disease Detection Helper<br>AI-ভিত্তিক পশু ও পাখির রোগ শনাক্তকরণ সহায়ক</p>
 
     {% if current_user.is_authenticated %}
-        <a href="/dashboard" class="hero-btn">ড্যাশবোর্ডে যান</a>
+        <a href="/dashboard" class="hero-btn">Go to Dashboard / ড্যাশবোর্ডে যান</a>
     {% else %}
-        <a href="/register" class="hero-btn">ফ্রি শুরু করুন</a>
+        <a href="/register" class="hero-btn">Start Free / ফ্রি শুরু করুন</a>
     {% endif %}
 </header>
 
-<h2 class="section-title">কেন SmartVet BD?</h2>
+<h2 class="section-title">Why SmartVet BD? / কেন SmartVet BD?</h2>
 
 <div class="feature-container">
 
     <div class="feature-card">
         <i class="fa-solid fa-magnifying-glass fa-2x" style="color:var(--turmeric-dark)"></i>
-        <h3>লক্ষণ থেকে রোগ শনাক্ত</h3>
-        <p>রোগের নাম না জেনেও শুধু লক্ষণ বেছে সম্ভাব্য রোগ জানুন।</p>
+        <h3>Find Disease by Symptoms / লক্ষণ থেকে রোগ শনাক্ত</h3>
+        <p>Select symptoms to find possible diseases.<br>লক্ষণ বেছে সম্ভাব্য রোগ জানুন।</p>
     </div>
 
     <div class="feature-card">
         <i class="fa-solid fa-shield-heart fa-2x" style="color:var(--turmeric-dark)"></i>
-        <h3>প্রতিরোধের উপায়</h3>
-        <p>প্রতিটি রোগের প্রাথমিক করণীয় ও প্রতিরোধ পদ্ধতি জানুন।</p>
+        <h3>Prevention Tips / প্রতিরোধের উপায়</h3>
+        <p>Learn first steps and prevention for each disease.<br>প্রতিটি রোগের প্রাথমিক করণীয় ও প্রতিরোধ জানুন।</p>
     </div>
 
     <div class="feature-card">
         <i class="fa-solid fa-language fa-2x" style="color:var(--turmeric-dark)"></i>
-        <h3>সহজ বাংলা ভাষায়</h3>
-        <p>প্রতিটি তথ্য সহজ, বোধগম্য বাংলা ভাষায় উপস্থাপিত।</p>
+        <h3>English & Bangla / ইংরেজি ও বাংলা</h3>
+        <p>Every page in both languages.<br>প্রতিটি পেজ দুই ভাষাতেই।</p>
     </div>
 
 </div>
 
-<h2 class="section-title">যেসব প্রাণী সাপোর্ট করে</h2>
+<h2 class="section-title">Supported Animals / যেসব প্রাণী সাপোর্ট করে</h2>
 
 <div class="animal-container">
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/cow.png') }}" alt="Cow">
-        <h2>গরু</h2>
+        <h2>Cow / গরু</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/goat.png') }}" alt="Goat">
-        <h2>ছাগল</h2>
+        <h2>Goat / ছাগল</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/chicken.png') }}" alt="Chicken">
-        <h2>মুরগি</h2>
+        <h2>Chicken / মুরগি</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/dog.png') }}" alt="Dog">
-        <h2>কুকুর</h2>
+        <h2>Dog / কুকুর</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/cat.png') }}" alt="Cat">
-        <h2>বিড়াল</h2>
+        <h2>Cat / বিড়াল</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/pigeon.png') }}" alt="Pigeon">
-        <h2>কবুতর</h2>
+        <h2>Pigeon / কবুতর</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/fish.png') }}" alt="Fish">
-        <h2>মাছ</h2>
+        <h2>Fish / মাছ</h2>
     </div>
 
     <div class="animal-card" style="cursor:default;">
         <img src="{{ url_for('static', filename='images/rabbit.png') }}" alt="Rabbit">
-        <h2>খরগোশ</h2>
+        <h2>Rabbit / খরগোশ</h2>
     </div>
 
 </div>
 
 <footer class="site-footer">
-    <p>&copy; 2026 SmartVet BD — সঠিক তথ্য, সুস্থ প্রাণী, সমৃদ্ধ খামার।</p>
+    <p>&copy; 2026 SmartVet BD — Accurate information, healthy animals, prosperous farms.<br>সঠিক তথ্য, সুস্থ প্রাণী, সমৃদ্ধ খামার।</p>
 </footer>
 
 </body>

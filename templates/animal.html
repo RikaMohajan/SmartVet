@@ -14,7 +14,7 @@
 
 <div class="back-link-wrap">
     <a href="/dashboard" class="back-link">
-        <i class="fa-solid fa-arrow-left"></i> ড্যাশবোর্ডে ফিরুন
+        <i class="fa-solid fa-arrow-left"></i> Back to Dashboard / ড্যাশবোর্ডে ফিরুন
     </a>
 </div>
 
@@ -66,19 +66,44 @@
         {% endif %}
     </div>
 
-    <h3 class="symptoms-heading">লক্ষণ নির্বাচন করুন</h3>
+    <h3 class="symptoms-heading">Select Symptoms / লক্ষণ নির্বাচন করুন</h3>
 
-    <div class="symptoms">
-        <label><input type="checkbox" value="Fever"> Fever</label>
-        <label><input type="checkbox" value="Cough"> Cough</label>
-        <label><input type="checkbox" value="Loss of Appetite"> Loss of Appetite</label>
-        <label><input type="checkbox" value="Diarrhea"> Diarrhea</label>
-        <label><input type="checkbox" value="Skin Lesion"> Skin Lesion</label>
-        <label><input type="checkbox" value="Difficulty Breathing"> Difficulty Breathing</label>
+    <div class="symptoms" style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px; text-align:left;">
+
+        <label style="display:flex; align-items:center; gap:10px; white-space:normal; padding:12px 14px;">
+            <input type="checkbox" value="Fever" style="width:18px; height:18px; margin:0; padding:0; flex:0 0 18px;">
+            <span>Fever / জ্বর</span>
+        </label>
+
+        <label style="display:flex; align-items:center; gap:10px; white-space:normal; padding:12px 14px;">
+            <input type="checkbox" value="Cough" style="width:18px; height:18px; margin:0; padding:0; flex:0 0 18px;">
+            <span>Cough / কাশি</span>
+        </label>
+
+        <label style="display:flex; align-items:center; gap:10px; white-space:normal; padding:12px 14px;">
+            <input type="checkbox" value="Loss of Appetite" style="width:18px; height:18px; margin:0; padding:0; flex:0 0 18px;">
+            <span>Loss of Appetite / খাওয়ায় অরুচি</span>
+        </label>
+
+        <label style="display:flex; align-items:center; gap:10px; white-space:normal; padding:12px 14px;">
+            <input type="checkbox" value="Diarrhea" style="width:18px; height:18px; margin:0; padding:0; flex:0 0 18px;">
+            <span>Diarrhea / ডায়রিয়া</span>
+        </label>
+
+        <label style="display:flex; align-items:center; gap:10px; white-space:normal; padding:12px 14px;">
+            <input type="checkbox" value="Skin Lesion" style="width:18px; height:18px; margin:0; padding:0; flex:0 0 18px;">
+            <span>Skin Lesion / চামড়ায় ঘা বা দাগ</span>
+        </label>
+
+        <label style="display:flex; align-items:center; gap:10px; white-space:normal; padding:12px 14px;">
+            <input type="checkbox" value="Difficulty Breathing" style="width:18px; height:18px; margin:0; padding:0; flex:0 0 18px;">
+            <span>Difficulty Breathing / শ্বাসকষ্ট</span>
+        </label>
+
     </div>
 
     <button onclick="searchDisease('{{ animal }}')">
-        <i class="fa-solid fa-magnifying-glass"></i> Check Disease
+        <i class="fa-solid fa-magnifying-glass"></i> Check Disease / রোগ নির্ণয় করুন
     </button>
 
     <div id="result"></div>

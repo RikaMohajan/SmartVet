@@ -865,3 +865,38 @@ button:active{
     background:#b42318;
     color:#fff;
 }
+/* ===== Symptoms fix v2 ===== */
+.animal-detect-card .symptoms{
+    display:grid !important;
+    grid-template-columns:repeat(2, 1fr) !important;
+    gap:12px !important;
+    text-align:left !important;
+}
+
+.animal-detect-card .symptoms label{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    white-space:normal !important;
+    padding:12px 14px !important;
+    line-height:1.4 !important;
+    font-size:.92rem !important;
+    width:100% !important;
+}
+
+.animal-detect-card .symptoms label input[type="checkbox"]{
+    width:18px !important;
+    height:18px !important;
+    min-width:18px !important;
+    margin:0 !important;
+    padding:0 !important;
+    flex:0 0 18px !important;
+}
+
+@media (max-width: 600px){
+    .animal-detect-card .symptoms{
+        grid-template-columns:1fr !important;
+    }
+}
